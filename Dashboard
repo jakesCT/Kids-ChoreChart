@@ -1,0 +1,699 @@
+  - title: Kids Chores
+    path: kids-chores
+    subview: true
+    badges: []
+    cards:
+      - type: custom:mushroom-title-card
+        title: Hailey's Chores
+      - square: false
+        type: grid
+        cards:
+          - show_name: true
+            show_icon: true
+            type: button
+            entity: input_boolean.hailey_make_bed
+            show_state: false
+            name: Make Bed
+          - show_name: true
+            show_icon: true
+            type: button
+            show_state: false
+            entity: input_boolean.feed_arlo_morning
+            name: Feed Arlo Morning
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.evening
+                state: 'on'
+            card:
+              show_name: true
+              show_icon: true
+              type: button
+              tap_action:
+                action: toggle
+              entity: input_boolean.feed_arlo_evening
+          - type: conditional
+            conditions:
+              - entity: schedule.schedule_monday
+                state: 'on'
+            card:
+              show_name: true
+              show_icon: true
+              type: button
+              tap_action:
+                action: toggle
+              entity: input_boolean.toggle_hailey_birdfeeder
+          - type: conditional
+            conditions:
+              - entity: schedule.schedule_tuesday
+                state: 'on'
+            card:
+              show_name: true
+              show_icon: true
+              type: button
+              tap_action:
+                action: toggle
+              entity: input_boolean.toggle_hailey_socks
+          - type: conditional
+            conditions:
+              - entity: schedule.friday
+                state: 'on'
+            card:
+              show_name: true
+              show_icon: true
+              type: button
+              tap_action:
+                action: toggle
+              entity: input_boolean.toggle_hailey_socks
+          - type: conditional
+            conditions:
+              - entity: schedule.schedule_tuesday
+                state: 'on'
+            card:
+              show_name: true
+              show_icon: true
+              type: button
+              tap_action:
+                action: toggle
+              entity: input_boolean.toggle_hailey_laundry
+          - type: conditional
+            conditions:
+              - entity: schedule.friday
+                state: 'on'
+            card:
+              show_name: true
+              show_icon: true
+              type: button
+              tap_action:
+                action: toggle
+              entity: input_boolean.toggle_hailey_laundry
+          - type: conditional
+            conditions:
+              - entity: schedule.schedule_wednesday
+                state: 'on'
+            card:
+              show_name: true
+              show_icon: true
+              type: button
+              tap_action:
+                action: toggle
+              entity: input_boolean.toggle_hailey_roombins
+              name: Empty Room Bins
+          - type: conditional
+            conditions:
+              - entity: schedule.schedule_thursday
+                state: 'on'
+              - entity: calendar.home
+                state: 'On'
+            card:
+              show_name: true
+              show_icon: true
+              type: button
+              tap_action:
+                action: toggle
+              entity: input_boolean.toggle_hailey_cleanhamstercage
+          - type: conditional
+            conditions:
+              - entity: input_select.dishwasher_rotation
+                state: Hailey
+            card:
+              show_name: true
+              show_icon: true
+              type: button
+              tap_action:
+                action: toggle
+              entity: input_boolean.hailey_unpack_dishwasher
+              name: Unpack Dishwasher
+          - type: conditional
+            conditions:
+              - entity: schedule.schedule_thursday
+                state: 'on'
+            card:
+              show_name: true
+              show_icon: true
+              type: button
+              tap_action:
+                action: toggle
+              entity: input_boolean.feed_hammy
+              name: Feed Hammy
+        columns: 3
+      - type: custom:mushroom-title-card
+        title: Michael's Chores
+        title_tap_action:
+          action: none
+        subtitle_tap_action:
+          action: none
+      - square: false
+        type: grid
+        cards:
+          - show_name: true
+            show_icon: true
+            type: button
+            entity: input_boolean.toggle_michael_make_bed
+            show_state: false
+            name: Make Bed
+          - show_name: true
+            show_icon: true
+            type: button
+            show_state: false
+            entity: input_boolean.toggle_feed_alice_morning
+          - type: conditional
+            conditions:
+              - entity: binary_sensor.evening
+                state: 'on'
+            card:
+              show_name: true
+              show_icon: true
+              type: button
+              tap_action:
+                action: toggle
+              entity: input_boolean.toggle_feed_alice_evening
+          - type: conditional
+            conditions:
+              - entity: schedule.schedule_monday
+                state: 'on'
+            card:
+              show_name: true
+              show_icon: true
+              type: button
+              tap_action:
+                action: toggle
+              entity: input_boolean.toggle_michael_greenbin
+              name: Bring in Bin
+          - type: conditional
+            conditions:
+              - entity: schedule.schedule_tuesday
+                state: 'on'
+            card:
+              show_name: true
+              show_icon: true
+              type: button
+              tap_action:
+                action: toggle
+              entity: input_boolean.toggle_michael_foldsocks
+              name: Fold Socks
+          - type: conditional
+            conditions:
+              - entity: schedule.friday
+                state: 'on'
+            card:
+              show_name: true
+              show_icon: true
+              type: button
+              tap_action:
+                action: toggle
+              entity: input_boolean.toggle_michael_foldsocks
+              name: Fold Socks
+          - type: conditional
+            conditions:
+              - entity: schedule.schedule_tuesday
+                state: 'on'
+            card:
+              show_name: true
+              show_icon: true
+              type: button
+              tap_action:
+                action: toggle
+              entity: input_boolean.toggle_michael_laundry
+              name: Pack away Laundry
+          - type: conditional
+            conditions:
+              - entity: schedule.friday
+                state: 'on'
+            card:
+              show_name: true
+              show_icon: true
+              type: button
+              tap_action:
+                action: toggle
+              entity: input_boolean.toggle_michael_laundry
+              name: Pack away Laundry
+          - type: conditional
+            conditions:
+              - entity: schedule.schedule_wednesday
+                state: 'on'
+            card:
+              show_name: true
+              show_icon: true
+              type: button
+              tap_action:
+                action: toggle
+              entity: input_boolean.toggle_michael_roombins
+              name: Empty Room Bins
+          - type: conditional
+            conditions:
+              - entity: input_select.dishwasher_rotation
+                state: Michael
+            card:
+              show_name: true
+              show_icon: true
+              type: button
+              tap_action:
+                action: toggle
+              entity: input_boolean.toggle_michael_unpackdishwasher
+              name: Unpack Dishwasher
+        columns: 3
+      - type: custom:mushroom-title-card
+        title: Extra Chores
+        title_tap_action:
+          action: none
+        subtitle_tap_action:
+          action: none
+      - square: false
+        type: grid
+        cards:
+          - square: false
+            type: grid
+            cards:
+              - type: custom:mushroom-title-card
+                title: Make Parents Bed
+              - type: horizontal-stack
+                cards:
+                  - show_name: true
+                    show_icon: true
+                    type: button
+                    tap_action:
+                      action: toggle
+                    entity: input_boolean.chore_select_hailey_parentsbed
+                    name: Hailey
+                  - show_name: true
+                    show_icon: true
+                    type: button
+                    tap_action:
+                      action: toggle
+                    entity: input_boolean.chore_select_michael_parentsbed
+                    name: Michael
+            columns: 2
+          - type: conditional
+            conditions:
+              - entity: input_boolean.chore_enable_clean_guestroom
+                state: 'on'
+            card:
+              square: false
+              type: grid
+              cards:
+                - type: custom:mushroom-title-card
+                  title: Clean Guestroom
+                  subtitle: ''
+                - type: horizontal-stack
+                  cards:
+                    - show_name: true
+                      show_icon: true
+                      type: button
+                      tap_action:
+                        action: toggle
+                      entity: input_boolean.chore_select_hailey_guestroom
+                      name: Hailey
+                    - show_name: true
+                      show_icon: true
+                      type: button
+                      tap_action:
+                        action: toggle
+                      entity: input_boolean.chore_select_michael_guestroom
+                      name: Michael
+              columns: 2
+          - type: conditional
+            conditions:
+              - entity: input_boolean.chore_enable_help_at_shop
+                state: 'on'
+            card:
+              square: false
+              type: grid
+              cards:
+                - type: custom:mushroom-title-card
+                  title: Help at Shop
+                - type: horizontal-stack
+                  cards:
+                    - show_name: true
+                      show_icon: true
+                      type: button
+                      tap_action:
+                        action: toggle
+                      entity: input_boolean.chore_select_hailey_shop
+                      name: Hailey
+                    - show_name: true
+                      show_icon: true
+                      type: button
+                      tap_action:
+                        action: toggle
+                      entity: input_boolean.chore_select_michael_shop
+                      name: Michael
+              columns: 2
+          - type: conditional
+            conditions:
+              - entity: input_boolean.chore_enable_help_with_dinner
+                state: 'on'
+            card:
+              square: false
+              type: grid
+              cards:
+                - type: custom:mushroom-title-card
+                  title: Help with Dinner
+                - type: horizontal-stack
+                  cards:
+                    - show_name: true
+                      show_icon: true
+                      type: button
+                      tap_action:
+                        action: toggle
+                      entity: input_boolean.chore_select_hailey_dinner
+                      name: Hailey
+                    - show_name: true
+                      show_icon: true
+                      type: button
+                      tap_action:
+                        action: toggle
+                      entity: input_boolean.chore_select_michael_dinner
+                      name: Michael
+              columns: 2
+          - type: conditional
+            conditions:
+              - entity: input_boolean.chore_enable_mop_downstairs
+                state: 'on'
+            card:
+              square: false
+              type: grid
+              cards:
+                - type: custom:mushroom-title-card
+                  title: Mop Downstairs
+                - type: horizontal-stack
+                  cards:
+                    - show_name: true
+                      show_icon: true
+                      type: button
+                      tap_action:
+                        action: toggle
+                      entity: input_boolean.chore_select_hailey_mop
+                      name: Hailey
+                    - show_name: true
+                      show_icon: true
+                      type: button
+                      tap_action:
+                        action: toggle
+                      entity: input_boolean.chore_select_michael_mop
+                      name: Michael
+              columns: 2
+          - type: conditional
+            conditions:
+              - entity: input_boolean.chore_enable_pick_up_poo
+                state: 'on'
+            card:
+              square: false
+              type: grid
+              cards:
+                - type: custom:mushroom-title-card
+                  title: Pick up Poop
+                - type: horizontal-stack
+                  cards:
+                    - show_name: true
+                      show_icon: true
+                      type: button
+                      tap_action:
+                        action: toggle
+                      entity: input_boolean.chore_select_hailey_poop
+                      name: Hailey
+                    - show_name: true
+                      show_icon: true
+                      type: button
+                      tap_action:
+                        action: toggle
+                      entity: input_boolean.chore_select_michael_poop
+                      name: Michael
+              columns: 2
+          - type: conditional
+            conditions:
+              - entity: input_boolean.chore_enable_sweep_downstairs
+                state: 'on'
+            card:
+              square: false
+              type: grid
+              cards:
+                - type: custom:mushroom-title-card
+                  title: Sweep Downstairs
+                - type: horizontal-stack
+                  cards:
+                    - show_name: true
+                      show_icon: true
+                      type: button
+                      tap_action:
+                        action: toggle
+                      entity: input_boolean.chore_select_hailey_sweep
+                      name: Hailey
+                    - show_name: true
+                      show_icon: true
+                      type: button
+                      tap_action:
+                        action: toggle
+                      entity: input_boolean.chore_select_michael_sweep
+                      name: Michael
+              columns: 2
+          - type: conditional
+            conditions:
+              - entity: input_boolean.chore_enable_vacuum_upstairs
+                state: 'on'
+            card:
+              square: false
+              type: grid
+              cards:
+                - type: custom:mushroom-title-card
+                  title: Vacuum Upstairs
+                - type: horizontal-stack
+                  cards:
+                    - show_name: true
+                      show_icon: true
+                      type: button
+                      tap_action:
+                        action: toggle
+                      entity: input_boolean.chore_select_hailey_vacuum
+                      name: Hailey
+                    - show_name: true
+                      show_icon: true
+                      type: button
+                      tap_action:
+                        action: toggle
+                      entity: input_boolean.chore_select_michael_vacuum
+                      name: Michael
+              columns: 2
+          - type: conditional
+            conditions:
+              - entity: input_boolean.chore_enable_mom_massage
+                state: 'on'
+            card:
+              square: false
+              type: grid
+              cards:
+                - type: custom:mushroom-title-card
+                  title: Mom Massage
+                - type: horizontal-stack
+                  cards:
+                    - show_name: true
+                      show_icon: true
+                      type: button
+                      tap_action:
+                        action: toggle
+                      entity: input_boolean.chore_select_hailey_mmassage
+                      name: Hailey
+                    - show_name: true
+                      show_icon: true
+                      type: button
+                      tap_action:
+                        action: toggle
+                      entity: input_boolean.chore_select_michael_mmassage
+                      name: Michael
+              columns: 2
+          - type: conditional
+            conditions:
+              - entity: input_boolean.chore_enable_dad_massage
+                state: 'on'
+            card:
+              square: false
+              type: grid
+              cards:
+                - type: custom:mushroom-title-card
+                  title: Dad Massage
+                - type: horizontal-stack
+                  cards:
+                    - show_name: true
+                      show_icon: true
+                      type: button
+                      tap_action:
+                        action: toggle
+                      entity: input_boolean.chore_select_hailey_dadmassage
+                      name: Hailey
+                    - show_name: true
+                      show_icon: true
+                      type: button
+                      tap_action:
+                        action: toggle
+                      entity: input_boolean.chore_select_michael_dadmassage
+                      name: Michael
+              columns: 2
+          - type: conditional
+            conditions:
+              - entity: input_boolean.chore_enable_make_parents_coffee
+                state: 'on'
+            card:
+              square: false
+              type: grid
+              cards:
+                - type: custom:mushroom-title-card
+                  title: Make Parents Coffee
+                - type: horizontal-stack
+                  cards:
+                    - show_name: true
+                      show_icon: true
+                      type: button
+                      tap_action:
+                        action: toggle
+                      entity: input_boolean.chore_select_hailey_coffee
+                      name: Hailey
+                    - show_name: true
+                      show_icon: true
+                      type: button
+                      tap_action:
+                        action: toggle
+                      entity: input_boolean.chore_select_michael_coffee
+                      name: Michael
+              columns: 2
+        columns: 1
+      - square: false
+        type: grid
+        cards:
+          - type: custom:mushroom-title-card
+            title: ''
+            subtitle: Hailey's Stats
+      - square: false
+        type: grid
+        cards:
+          - type: custom:mushroom-template-card
+            primary: Daily Chores
+            secondary: '{{states(''counter.counter_hailey_chores_daily'')}}'
+            icon: mdi:home
+            tap_action:
+              action: more-info
+            hold_action:
+              action: none
+            double_tap_action:
+              action: none
+          - type: custom:mushroom-template-card
+            primary: Monthly Chores
+            secondary: '{{states(''counter.counter_hailey_chores_monthly'')}}'
+            icon: mdi:home
+            tap_action:
+              action: more-info
+            hold_action:
+              action: none
+            double_tap_action:
+              action: none
+        columns: 2
+      - square: false
+        type: grid
+        cards:
+          - type: custom:mushroom-title-card
+            title: ''
+            subtitle: Michael's Stats
+      - square: false
+        type: grid
+        cards:
+          - type: custom:mushroom-template-card
+            primary: Daily Chores
+            secondary: '{{states(''counter.counter_michael_chores_daily'')}}'
+            icon: mdi:home
+            tap_action:
+              action: more-info
+            hold_action:
+              action: none
+            double_tap_action:
+              action: none
+          - type: custom:mushroom-template-card
+            primary: Monthly Chores
+            secondary: '{{states(''counter.counter_michael_chores_monthly'')}}'
+            icon: mdi:home
+            tap_action:
+              action: more-info
+            hold_action:
+              action: none
+            double_tap_action:
+              action: none
+        columns: 2
+      - type: custom:apexcharts-card
+        header:
+          show: true
+          title: Weekly Totals
+          show_states: false
+          colorize_states: true
+        graph_span: 7d
+        series:
+          - entity: input_number.hailey_daily_chores_total
+            name: Hailey
+            type: column
+            group_by:
+              func: max
+              duration: 1d
+          - entity: input_number.michael_daily_chore_total
+            name: Michael
+            type: column
+            group_by:
+              func: max
+              duration: 1d
+        yaxis:
+          - min: 0
+      - type: custom:apexcharts-card
+        header:
+          show: true
+          title: Past 30 Days
+          show_states: false
+          colorize_states: true
+        graph_span: 30d
+        series:
+          - entity: input_number.hailey_daily_chores_total
+            name: Hailey
+            type: column
+            group_by:
+              func: max
+              duration: 1d
+              start_with_last: true
+          - entity: input_number.michael_daily_chore_total
+            name: Michael
+            type: column
+            group_by:
+              func: max
+              duration: 1d
+              start_with_last: true
+        yaxis:
+          - min: 0
+      - square: true
+        type: grid
+        cards:
+          - type: entities
+            entities:
+              - entity: input_boolean.chore_enable_clean_guestroom
+                name: Clean Guestroom
+                secondary_info: none
+              - entity: input_boolean.chore_enable_help_at_shop
+                name: Help at Shop
+                secondary_info: none
+              - entity: input_boolean.chore_enable_help_with_dinner
+                name: Help with Dinner
+                secondary_info: none
+              - entity: input_boolean.chore_enable_mop_downstairs
+                name: Mop Downstairs
+                secondary_info: none
+              - entity: input_boolean.chore_enable_pick_up_poo
+                name: Pick up Poop
+                secondary_info: none
+              - entity: input_boolean.chore_enable_sweep_downstairs
+                name: Sweep Downstairs
+                secondary_info: none
+              - entity: input_boolean.chore_enable_vacuum_upstairs
+                name: Vacuum Upstairs
+                secondary_info: none
+              - entity: input_boolean.chore_enable_mom_massage
+                name: Mom Massage
+                secondary_info: none
+              - entity: input_boolean.chore_enable_dad_massage
+                name: Dad Massage
+                secondary_info: none
+              - entity: input_boolean.chore_enable_make_parents_coffee
+                name: Make Parents Coffee
+                secondary_info: none
+        columns: 1
