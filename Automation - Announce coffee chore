@@ -1,0 +1,20 @@
+alias: State - Coffee Chore Announcement
+description: ""
+trigger:
+  - platform: state
+    entity_id:
+      - input_boolean.chore_enable_make_parents_coffee
+    to: "on"
+condition:
+  - condition: time
+    after: "07:00:00"
+action:
+  - service: notify.alexa_media
+    data:
+      target:
+        - Jacques's Yamaha ATS-2090
+        - Kitchen
+        - Hailey's Room
+        - Mikey's Room
+      message: Hey Kids, There is a new chore to make mom and dad coffee
+mode: single
