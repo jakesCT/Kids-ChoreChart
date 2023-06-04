@@ -1,0 +1,91 @@
+alias: Counter - Michael counter decrement
+description: ""
+trigger:
+  - platform: state
+    entity_id:
+      - input_boolean.toggle_michael_make_bed
+    to: "off"
+  - platform: state
+    entity_id:
+      - input_boolean.toggle_feed_alice_morning
+    to: "off"
+  - platform: state
+    entity_id:
+      - input_boolean.toggle_feed_alice_evening
+    to: "off"
+  - platform: state
+    entity_id:
+      - input_boolean.toggle_michael_greenbin
+    to: "off"
+  - platform: state
+    entity_id:
+      - input_boolean.toggle_michael_foldsocks
+    to: "off"
+  - platform: state
+    entity_id:
+      - input_boolean.toggle_michael_laundry
+    to: "off"
+  - platform: state
+    entity_id:
+      - input_boolean.toggle_michael_roombins
+    to: "off"
+  - platform: state
+    entity_id:
+      - input_boolean.toggle_michael_unpackdishwasher
+    to: "off"
+  - platform: state
+    entity_id:
+      - input_boolean.chore_select_michael_dinner
+    to: "off"
+  - platform: state
+    entity_id:
+      - input_boolean.chore_select_michael_guestroom
+    to: "off"
+  - platform: state
+    entity_id:
+      - input_boolean.chore_select_michael_mop
+    to: "off"
+  - platform: state
+    entity_id:
+      - input_boolean.chore_select_michael_poop
+    to: "off"
+  - platform: state
+    entity_id:
+      - input_boolean.chore_select_michael_shop
+    to: "off"
+  - platform: state
+    entity_id:
+      - input_boolean.chore_select_michael_sweep
+    to: "off"
+  - platform: state
+    entity_id:
+      - input_boolean.chore_select_michael_vacuum
+    to: "off"
+  - platform: state
+    entity_id:
+      - input_boolean.chore_select_michael_dadmassage
+    to: "off"
+  - platform: state
+    entity_id:
+      - input_boolean.chore_select_hailey_mmassage
+    to: "off"
+  - platform: state
+    entity_id:
+      - input_boolean.chore_select_michael_coffee
+    to: "off"
+  - platform: state
+    entity_id:
+      - input_boolean.chore_select_michael_parentsbed
+    to: "off"
+condition:
+  - condition: time
+    after: "01:00:00"
+    before: "23:30:00"
+action:
+  - service: counter.decrement
+    data: {}
+    target:
+      entity_id:
+        - counter.counter_michael_chores_monthly
+        - counter.counter_michael_chores_daily
+mode: single
