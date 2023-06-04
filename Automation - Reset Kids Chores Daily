@@ -1,0 +1,23 @@
+alias: Counter - Reset Kids Chores daily
+description: ""
+trigger:
+  - platform: time
+    at: "00:30:00"
+condition: []
+action:
+  - service: homeassistant.turn_off
+    data: {}
+    target:
+      area_id: kidschores
+  - service: counter.reset
+    data: {}
+    target:
+      entity_id:
+        - counter.counter_hailey_chores_daily
+        - counter.counter_michael_chores_daily
+  - service: input_select.select_option
+    data:
+      option: Note Done
+    target:
+      entity_id: input_select.chore_dropdown_guestroom
+mode: single
