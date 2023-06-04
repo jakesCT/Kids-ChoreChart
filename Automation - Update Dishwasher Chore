@@ -1,0 +1,26 @@
+alias: Timed - Michael Dishwasher Done
+description: ""
+trigger:
+  - platform: time_pattern
+    hours: "*"
+condition:
+  - condition: state
+    entity_id: input_boolean.toggle_michael_unpackdishwasher
+    state: "on"
+action:
+  - service: input_select.select_option
+    data:
+      option: Hailey
+    target:
+      entity_id: input_select.dishwasher_rotation
+  - service: homeassistant.turn_off
+    data: {}
+    target:
+      entity_id: input_boolean.toggle_michael_unpackdishwasher
+  - service: counter.increment
+    data: {}
+    target:
+      entity_id:
+        - counter.counter_michael_chores_daily
+        - counter.counter_michael_chores_monthly
+mode: single
